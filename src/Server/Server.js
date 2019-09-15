@@ -2,6 +2,7 @@ const express = require('express');
 const mime = require('mime-types');
 const path = require('path');
 const bodyParser = require('body-parser');
+const urlExists = require('url-exists');
 // const utf8 = require('utf8');
 
 class Server {
@@ -27,6 +28,8 @@ class Server {
 		});
 
 		server.get('/api/repos/:repositoryId/commits/:commitHash', (req, res) => {
+			// if query is omitted
+			// res.redirect(`/api/repos/${req.params.repositoryId}/commits/${req.params.commitHash}?display=10&page=1`);
 			try {
 				const process = this.repoHandler.getCommits(
 					req.params.repositoryId,
@@ -43,17 +46,47 @@ class Server {
 							.status(404)
 							.json({ message: 'branchName or commitHash does not exist' });
 					} else {
-						res.json({
-							data: result
-								.trim()
-								.split('\n')
-								.map(elem =>
+						let commits = result.trim().split('\n');
+						const displayAmount = req.query.display || 10;
+						const page = req.query.page || 1;
+						if (
+							typeof req.query.display !== 'undefined' ||
+							typeof req.query.page !== 'undefined'
+						) {
+							if (
+								!isNaN(+displayAmount) &&
+								+displayAmount > 0 &&
+								!isNaN(+page) &&
+								+page > 0 &&
+								+page <= Math.ceil(commits.length / displayAmount)
+							) {
+								res.json({
+									data: commits
+										.filter(
+											(commit, i) =>
+												i > displayAmount * (page - 1) - 1 &&
+												i < displayAmount * page
+										)
+										.map(elem =>
+											elem.split('|').reduce((acc, val, i) => {
+												acc[keys[i]] = val;
+												return acc;
+											}, {})
+										)
+								});
+							} else {
+								res.status(404).json({ message: 'wrong query parameter' });
+							}
+						} else {
+							res.json({
+								data: commits.map(elem =>
 									elem.split('|').reduce((acc, val, i) => {
 										acc[keys[i]] = val;
 										return acc;
 									}, {})
 								)
-						});
+							});
+						}
 					}
 				});
 			} catch (err) {
@@ -126,25 +159,27 @@ class Server {
 						req.params.commitHash,
 						req.params.pathToFile
 					);
-					let result = '';
+					const contentType = mime.contentType(
+						path.extname(req.params.pathToFile)
+					);
+					res.type(contentType);
+					// let result = '';
+					// process.stdout.on('data', function(data) {
+					// 	result += data.toString();
+					// });
+
+					// For optimizing memory for large files
 					process.stdout.on('data', function(data) {
-						result += data.toString();
+						res.write(data);
 					});
 					process.on('close', function() {
-						if (result.length === 0) {
-							res.status(404).json({
-								message: 'File is empty or not exists'
-							});
-						} else {
-							const contentType = mime.contentType(
-								path.extname(req.params.pathToFile)
-							);
-							res.type(contentType);
-							// console.log(contentType);
-							// res.write(result);
-							// res.send();
-							res.send(result.toString());
-						}
+						// if (result.length === 0) {
+						// 	res.status(404).json({
+						// 		message: 'File is empty or not exists'
+						// 	});
+						// }
+
+						res.end();
 					});
 					process.on('uncaughtException', ex => {
 						console.log(ex);
@@ -169,12 +204,19 @@ class Server {
 
 		server.post('/api/repos', (req, res) => {
 			const { url } = req.body;
-			try {
-				this.repoHandler.cloneRepo(url);
-				res.status(200).json({ message: 'Repo cloned' });
-			} catch (err) {
-				res.status(500).send({ message: `Error: ${err}` });
-			}
+
+			urlExists(url, (error, exists) => {
+				if (exists === true) {
+					try {
+						this.repoHandler.cloneRepo(url);
+						res.status(200).json({ message: 'Repo cloned' });
+					} catch (err) {
+						res.status(500).send({ message: `Error: ${err}` });
+					}
+				} else {
+					res.status(404).send({ message: 'Git file is not found' });
+				}
+			});
 		});
 
 		server.use(function(req, res) {

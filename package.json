@@ -14,6 +14,7 @@
     "express": "^4.17.1",
     "mime-types": "^2.1.24",
     "rimraf": "^3.0.0",
+    "url-exists": "^1.0.3",
     "utf8": "^3.0.0"
   },
   "devDependencies": {

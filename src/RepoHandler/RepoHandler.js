@@ -10,7 +10,7 @@ module.exports = class RepoHandler {
 		) {
 			this.directoryPath = directoryPath;
 		} else {
-			throw new Error('Directory does not exist!');
+			throw new Error('Please provide correct path to repos folder!');
 		}
 	}
 
