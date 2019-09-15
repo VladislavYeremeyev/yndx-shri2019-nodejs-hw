@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { spawn } = require('child_process');
 const rimraf = require('rimraf');
+const path = require('path');
 
 module.exports = class RepoHandler {
 	constructor(directoryPath) {
@@ -112,9 +113,15 @@ module.exports = class RepoHandler {
 	getLettersData(repositoryId) {
 		const SymbolReadStream = require('../SymbolReadStream');
 		let resultObject = {};
-
+		console.log(path.join(this.directoryPath, repositoryId));
+		const files = fs
+			.readdirSync(path.join(this.directoryPath, repositoryId), {
+				withFileTypes: true
+			})
+			.map(file => file);
+		console.log(files);
 		var r = new SymbolReadStream(
-			'src/test.txt',
+			path.join(this.directoryPath, repositoryId, 'CONTENT.md'),
 			{
 				encoding: 'utf8'
 			},
