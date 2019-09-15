@@ -219,6 +219,27 @@ class Server {
 			});
 		});
 
+		server.get('/api/repos/:repositoryId/letters', async (req, res) => {
+			try {
+				const stream = this.repoHandler.getLettersData(
+					req.params.repositoryId
+				);
+
+				stream.on('data', function(el) {
+					if (typeof stream.result[el] !== 'undefined') {
+						stream.result[el] += 1;
+					} else {
+						stream.result[el] = 1;
+					}
+				});
+				stream.on('end', function() {
+					res.json(stream.result);
+				});
+			} catch (err) {
+				console.log(err);
+			}
+		});
+
 		server.use(function(req, res) {
 			res.status(404).send({ message: 'Not found' });
 		});
