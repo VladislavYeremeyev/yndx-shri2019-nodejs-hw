@@ -1,0 +1,14 @@
+.Breadcrumbs-Item:not(:last-child):after {
+	margin-right: 17px;
+	margin-left: 14px;
+
+	content: "/";
+}
+
+.Breadcrumbs-Item:not(:last-child) {
+	color: var(--secondary-text-color);
+}
+
+.Breadcrumbs-Item:last-child {
+	font-weight: bold;
+}

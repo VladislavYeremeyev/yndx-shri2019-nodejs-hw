@@ -1,0 +1,14 @@
+.Grid_m-columns_12 {
+	grid-template-columns: repeat(12, 1fr);
+
+	/* Pixel Perfect :( */
+
+	/* grid-template-columns: 242px 258px 476px 1fr 1fr; */
+}
+
+@media screen and (max-width: 640px) {
+	.Grid_m-columns_12 {
+		grid-auto-flow: row;
+		grid-template-columns: initial;
+	}
+}

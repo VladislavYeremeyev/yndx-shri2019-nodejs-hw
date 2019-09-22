@@ -1,0 +1,11 @@
+.Grid-CommitInfo {
+	display: none;
+	flex-grow: 1;
+	margin-left: 8px;
+}
+
+@media screen and (max-width: 640px) {
+	.Grid-CommitInfo {
+		display: block;
+	}
+}

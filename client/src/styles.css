@@ -1,0 +1,148 @@
+@import "./common.blocks/Theme/_color/Theme_color_project-default.css";
+@import "./common.blocks/Theme/_space/Theme_space_default.css";
+@import "./common.blocks/Theme/_font/Theme_font_default.css";
+
+@import "./common.blocks/Layout/Layout.css";
+@import "./common.blocks/Layout/Container/_border/Layout-Container_border_b.css";
+@import "./common.blocks/Layout/Container/_border/Layout-Container_border_t.css";
+@import "./common.blocks/Layout/Container/_space-h/Layout-Container_space-h_xxl.css";
+@import "./common.blocks/Layout/Container/_space-h/Layout-Container_space-h_l.css";
+@import "./common.blocks/Layout/Container/_expand/Layout-Container_expand.css";
+
+@import "./common.blocks/Header/Header.css";
+@import "./common.blocks/Header/Logo/Header-Logo.css";
+@import "./common.blocks/Header/Menu/Header-Menu.css";
+
+@import "./common.blocks/TabMenu/TabMenu.css";
+@import "./common.blocks/TabMenu/_border/TabMenu_border_b.css";
+@import "./common.blocks/TabMenu/Tab/TabMenu-Tab.css";
+@import "./common.blocks/TabMenu/Tab/_space-r/TabMenu-Tab_space-r_xxl.css";
+@import "./common.blocks/TabMenu/Tab/_active/TabMenu-Tab_active.css";
+
+@import "./common.blocks/Text/_size/Text_size_xxxs.css";
+@import "./common.blocks/Text/_size/Text_size_xs.css";
+@import "./common.blocks/Text/_size/Text_size_xl.css";
+@import "./common.blocks/Text/_color/Text_color_secondary.css";
+
+@import "./common.blocks/Link/Link.css";
+@import "./common.blocks/Link/_color/Link_color_blue.css";
+
+@import "./common.blocks/AuthorSpan/AuthorSpan.css";
+
+@import "./common.blocks/DropdownBlock/DropdownBlock.css";
+@import "./common.blocks/DropdownBlock/Menu/DropdownBlock-Menu.css";
+@import "./common.blocks/DropdownBlock/_opened/DropdownBlock_opened.css";
+@import "./common.blocks/DropdownBlock/MenuItem/DropdownBlock-MenuItem.css";
+@import "./common.blocks/DropdownBlock/_color/DropdownBlock_color_pale.css";
+@import "./common.blocks/DropdownBlock/Overlay/DropdownBlock-Overlay.css";
+@import "./common.blocks/DropdownBlock/MenuHandle/DropdownBlock-MenuHandle.css";
+@import "./common.blocks/DropdownBlock/HandleBar/DropdownBlock-HandleBar.css";
+
+@import "./common.blocks/MainContentContainer/MainContentContainer.css";
+
+@import "./common.blocks/Breadcrumbs/Breadcrumbs.css";
+@import "./common.blocks/Breadcrumbs/_border/Breadcrumbs_border_b.css";
+@import "./common.blocks/Breadcrumbs/Item/Breadcrumbs-Item.css";
+
+@import "./common.blocks/DirectoryTitle/DirectoryTitle.css";
+@import "./common.blocks/DirectoryTitle/Name/DirectoryTitle-Name.css";
+@import "./common.blocks/DirectoryTitle/Branch/DirectoryTitle-Branch.css";
+@import "./common.blocks/DirectoryTitle/_space-t/DirectoryTitle_space-t_s.css";
+
+@import "./common.blocks/DirectorySubTitle/DirectorySubTitle.css";
+
+@import "./common.blocks/Grid/Menu/Grid-Menu.css";
+@import "./common.blocks/Grid/Grid.css";
+@import "./common.blocks/Grid/Header/Grid-Header.css";
+@import "./common.blocks/Grid/Header/_border/Grid-Header_border_b.css";
+@import "./common.blocks/Grid/File/Grid-File.css";
+@import "./common.blocks/FileIcon/FileIcon.css";
+@import "./common.blocks/Grid/FileName/Grid-FileName.css";
+@import "./common.blocks/Grid/FileName/_text/Grid-FileName_text_bold.css";
+@import "./common.blocks/Grid/_m-columns/Grid_m-columns_12.css";
+@import "./common.blocks/Grid/Row//Grid-Row.css";
+@import "./common.blocks/Grid/Row/_border/Grid-Row_border_b.css";
+@import "./common.blocks/Grid/Row/_border/Grid-Row_border_none.css";
+@import "./common.blocks/Grid/Fraction/_text-align/Grid-Fraction_text-align_right.css";
+@import "./common.blocks/Grid/Fraction/_m-col/Grid-Fraction_m-col_2.css";
+@import "./common.blocks/Grid/Fraction/_m-col/Grid-Fraction_m-col_3.css";
+@import "./common.blocks/Grid/Fraction/_m-col/Grid-Fraction_m-col_4.css";
+@import "./common.blocks/Grid/Fraction/_m-col/Grid-Fraction_m-col_5.css";
+@import "./common.blocks/Grid/Fraction/_m-col/Grid-Fraction_m-col_6.css";
+@import "./common.blocks/Grid/Fraction/_m-col/Grid-Fraction_m-col_8.css";
+@import "./common.blocks/Grid/CommitInfo/Grid-CommitInfo.css";
+@import "./common.blocks/Grid/Committer/Grid-Committer.css";
+@import "./common.blocks/Grid/UpdateDate/Grid-UpdateDate.css";
+@import "./common.blocks/Grid/CommitHash/Grid-CommitHash.css";
+@import "./common.blocks/Grid/BranchCommitHash/Grid-BranchCommitHash.css";
+
+@import "./common.blocks/FileHistory/FileHistory.css";
+@import "./common.blocks/FileHistory/Block/FileHistory-Block.css";
+@import "./common.blocks/FileHistoryChange/ChangeIcon/FileHistoryChange-ChangeIcon.css";
+@import "./common.blocks/FileHistoryChange/Path/FileHistoryChange-Path.css";
+@import "./common.blocks/FileHistoryChange/FileHistoryChange.css";
+@import "./common.blocks/FileHistory/Date/FileHistory-Date.css";
+@import "./common.blocks/FileHistoryChange/Description/FileHistoryChange-Description.css";
+@import "./common.blocks/FileHistoryChange/Commit/FileHistoryChange-Commit.css";
+@import "./common.blocks/FileHistoryChange/ChangeIconWrapper/FileHistoryChange-ChangeIconWrapper.css";
+
+@import "./common.blocks/CodeContainer/CodeContainer.css";
+@import "./common.blocks/CodeContainer/_border/CodeContainer_border_all.css";
+@import "./common.blocks/CodeContainer/Header/CodeContainer-Header.css";
+@import "./common.blocks/CodeContainer/DownloadIcon/CodeContainer-DownloadIcon.css";
+@import "./common.blocks/CodeContainer/FileIcon/CodeContainer-FileIcon.css";
+@import "./common.blocks/CodeContainer/FileInfo/CodeContainer-FileInfo.css";
+@import "./common.blocks/CodeContainer/BytesSpan/CodeContainer-BytesSpan.css";
+@import "./common.blocks/CodeBlock/Line/CodeBlock-Line.css";
+@import "./common.blocks/CodeContainer/CodeBlockContainer/CodeContainer-CodeBlockContainer.css";
+@import "./common.blocks/CodeBlock/BlobNum/CodeBlock-BlobNum.css";
+@import "./common.blocks/CodeBlock/BlobNum/_old/CodeBlock-BlobNum_old.css";
+@import "./common.blocks/CodeBlock/CodeBlock.css";
+@import "./common.blocks/CodeBlock/_line-wrap/CodeBlock_line-wrap_wrap.css";
+@import "./common.blocks/CodeBlock/Token/_type/CodeBlock-Token_type_reserved.css";
+@import "./common.blocks/CodeBlock/Token/_type/CodeBlock-Token_type_comment.css";
+@import "./common.blocks/CodeBlock/Token/_type/CodeBlock-Token_type_string.css";
+@import "./common.blocks/CodeBlock/Token/_type/CodeBlock-Token_type_fn-name.css";
+@import "./common.blocks/CodeBlock/Line/_type/CodeBlock-Line_type_deletion.css";
+@import "./common.blocks/CodeBlock/Line/_type/CodeBlock-Line_type_addition.css";
+@import "./common.blocks/CodeBlock/Token/_type/CodeBlock-Token_type_java-reserved.css";
+@import "./common.blocks/CodeBlock/Token/_type/CodeBlock-Token_type_java-fn-name.css";
+@import "./common.blocks/CodeBlock/Token/_type/CodeBlock-Token_type_java-comment.css";
+
+@import "./common.blocks/CommitInfoContainer/CommitInfoContainer.css";
+@import "./common.blocks/CommitInfoContainer/Header/CommitInfoContainer-Header.css";
+@import "./common.blocks/CommitInfoContainer/Title/CommitInfoContainer-Title.css";
+@import "./common.blocks/CommitInfoContainer/NavigationPanel/CommitInfoContainer-NavigationPanel.css";
+@import "./common.blocks/CommitInfoContainer/CommitSubTitle/CommitInfoContainer-SubTitle.css";
+@import "./common.blocks/CommitContainer/Header/CommitContainer-Header.css";
+@import "./common.blocks/CommitContainer/FileInfo/CommitContainer-FileInfo.css";
+@import "./common.blocks/CommitContainer/DiffData/CommitContainer-DiffData.css";
+@import "./common.blocks/CommitContainer/LinkToFile/CommitContainer-LinkToFile.css";
+@import "./common.blocks/CommitContainer/ChangeType/CommitContainer-ChangeType.css";
+@import "./common.blocks/CommitContainer/FilePath/CommitContainer-FilePath.css";
+@import "./common.blocks/CommitContainer/FileIcon/CommitContainer-FileIcon.css";
+@import "./common.blocks/CommitContainer/Additions/CommitContainer-Additions.css";
+@import "./common.blocks/CommitContainer/Deletions/CommitContainer-Deletions.css";
+@import "./common.blocks/CommitContainer/LineDiff/CommitContainer-LineDiff.css";
+@import "./common.blocks/CommitContainer/LineNavigation/CommitContainer-LineNavigation.css";
+@import "./common.blocks/CommitContainer/NavigateButton/CommitContainer-NavigateButton.css";
+@import "./common.blocks/CommitContainer/BlobCodeHunk/CommitContainer-BlobCodeHunk.css";
+@import "./common.blocks/CommitContainer/NavigateButton/color/CommitContainer-NavigateButton_color_pale.css";
+
+@import "./common.blocks/BackButton/BackButton.css";
+@import "./common.blocks/ShowFilesButton/ShowFilesButton.css";
+
+@import "./common.blocks/Footer/Footer.css";
+@import "./common.blocks/Footer/AddressBlock/Footer-AddressBlock.css";
+@import "./common.blocks/Footer/Element/_space-r/Footer-Element_space-r_xxl.css";
+
+html {
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}

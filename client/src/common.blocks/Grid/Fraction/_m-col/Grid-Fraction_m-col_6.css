@@ -1,0 +1,9 @@
+.Grid-Fraction_m-col_6 {
+	grid-column: span 6;
+}
+
+@media screen and (max-width: 640px) {
+	.Grid-Fraction_m-col_6 {
+		grid-column: initial;
+	}
+}

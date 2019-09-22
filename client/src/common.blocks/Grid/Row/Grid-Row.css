@@ -1,0 +1,41 @@
+.Grid-Row {
+	position: relative;
+
+	box-sizing: border-box;
+	min-height: 49px;
+	padding: 14px 8px 8px;
+
+	line-height: 20px;
+}
+
+.Grid-Row:hover {
+	background-color: #f6f8fa;
+}
+
+.Grid-Row:after {
+	position: absolute;
+	top: 50%;
+	left: calc(100% - 15px);
+
+	display: none;
+	width: 10px;
+	height: 19px;
+
+	background-image: url("./show_more_icon.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	transform: translateY(-50%);
+
+	content: " ";
+}
+
+@media screen and (max-width: 640px) {
+	.Grid-Row {
+		padding: 14px 0 8px;
+	}
+
+	.Grid-Row:after {
+		display: flex;
+	}
+}

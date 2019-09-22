@@ -1,0 +1,10 @@
+.Footer {
+	display: flex;
+
+	flex-shrink: 0;
+	align-items: center;
+	box-sizing: border-box;
+	min-height: 50px;
+
+	line-height: 18px;
+}

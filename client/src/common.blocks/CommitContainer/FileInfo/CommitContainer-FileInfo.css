@@ -1,0 +1,11 @@
+.CommitContainer-FileInfo {
+	display: flex;
+	flex-grow: 1;
+	width: 80%;
+}
+
+@media screen and (max-width: 640px) {
+	.CommitContainer-FileInfo {
+		width: 100%;
+	}
+}

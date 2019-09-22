@@ -1,0 +1,5 @@
+.TabMenu-Tab_active {
+	color: var(--primary-text-color);
+
+	border-color: var(--accent-bg-color);
+}

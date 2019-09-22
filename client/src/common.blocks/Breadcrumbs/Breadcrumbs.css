@@ -1,0 +1,8 @@
+.Breadcrumbs {
+	display: flex;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+	padding: 10px 0 12px;
+
+	line-height: 20px;
+}

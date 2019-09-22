@@ -1,0 +1,16 @@
+.CommitContainer-LineNavigation {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	min-height: 28px;
+	padding: 4px 0;
+
+	font-size: 12px;
+	font-family: "PT Mono", monospace;
+	line-height: 20px;
+
+	background: #f1f8ff;
+}

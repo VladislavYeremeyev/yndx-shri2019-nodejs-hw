@@ -1,0 +1,5 @@
+.Grid-FileName:hover {
+	color: var(--link-text-color-hovered);
+
+	cursor: pointer;
+}

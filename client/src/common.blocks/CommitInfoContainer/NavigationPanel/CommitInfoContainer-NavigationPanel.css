@@ -1,0 +1,4 @@
+.CommitInfoContainer-NavigationPanel {
+	display: flex;
+	justify-content: space-between;
+}

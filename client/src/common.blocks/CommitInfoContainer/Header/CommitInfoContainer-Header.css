@@ -1,0 +1,11 @@
+.CommitInfoContainer-Header {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 640px) {
+	.CommitInfoContainer-Header {
+		flex-direction: column;
+		margin-top: 10px;
+	}
+}

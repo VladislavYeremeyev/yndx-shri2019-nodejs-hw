@@ -1,0 +1,9 @@
+.Theme_font_default {
+	--font-size-xxxs: 13px;
+	--font-size-xxs: 14px;
+	--font-size-xs: 16px;
+	--font-size-xl: 24px;
+	font-size: var(--font-size-xxs);
+
+	font-family: sans-serif;
+}

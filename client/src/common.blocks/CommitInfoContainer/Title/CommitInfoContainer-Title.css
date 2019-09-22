@@ -1,0 +1,16 @@
+.CommitInfoContainer-Title {
+	flex-grow: 1;
+
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 28px;
+}
+
+@media screen and (max-width: 640px) {
+	.CommitInfoContainer-Title {
+		margin-top: 10px;
+
+		font-size: 20px;
+		line-height: 28px;
+	}
+}

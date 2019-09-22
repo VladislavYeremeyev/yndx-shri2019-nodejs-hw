@@ -1,0 +1,10 @@
+.DropdownBlock-MenuItem {
+	/* padding: 10.5px 22px; */
+	padding: 8px 22px;
+
+	line-height: 20px;
+}
+
+.DropdownBlock-MenuItem:hover {
+	background-color: rgba(255, 204, 0, 0.2);
+}

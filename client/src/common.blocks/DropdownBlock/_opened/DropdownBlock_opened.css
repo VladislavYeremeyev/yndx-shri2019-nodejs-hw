@@ -1,0 +1,20 @@
+.DropdownBlock_opened .DropdownBlock-Menu {
+	transform: scaleX(1) scaleY(1);
+	opacity: 1;
+
+	pointer-events: initial;
+}
+
+.DropdownBlock_opened:after {
+	transform: rotate(180deg);
+}
+
+@media screen and (max-width: 640px) {
+	.DropdownBlock_opened .DropdownBlock-Menu {
+		transform: translateY(0);
+	}
+
+	.DropdownBlock_opened .DropdownBlock-Overlay {
+		display: block;
+	}
+}

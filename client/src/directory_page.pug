@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="ie=edge")
+		title Arcanum
+		link(rel="stylesheet" type="text/css" href="./styles.css")
+	body
+		.Layout.Theme.Theme_color_project-default.Theme_space_default.Theme_font_default
+			.Header.Layout-Container.Layout-Container_border_b.Layout-Container_space-h_xxl
+				include ./common.blocks/Header/Header.pug
+			.MainContentContainer.Layout-Container.Layout-Container_space-h_xxl
+				include ./common.blocks/Breadcrumbs/Breadcrumbs.pug
+				include ./common.blocks/DirectoryTitle/DirectoryTitle.pug
+				include ./common.blocks/DirectorySubTitle/DirectorySubTitle.pug
+				.Grid-Menu.TabMenu.TabMenu_border_b
+					.TabMenu-Tab.TabMenu-Tab_active.TabMenu-Tab_space-r_xxl
+						span.Text.Text_size_xs <strong>FILES</strong>
+					.TabMenu-Tab
+						span.Text.Text_size_xs <strong>BRANCHES</strong>
+				include ./common.blocks/Grid/Grid.pug
+			.Footer.Footer_text_secondary.Layout-Container.Layout-Container_border_t.Layout-Container_space-h_l
+				include ./common.blocks/Footer/Footer.pug
+		script(src='./index.js')

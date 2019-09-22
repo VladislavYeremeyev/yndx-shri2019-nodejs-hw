@@ -1,0 +1,9 @@
+.FileHistoryChange-Commit {
+	flex-grow: 1;
+}
+
+@media screen and (max-width: 640px) {
+	.FileHistoryChange-Commit {
+		display: none;
+	}
+}

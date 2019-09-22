@@ -1,0 +1,3 @@
+.Footer-Element_space-r_xxl:not(:last-child) {
+	margin-right: var(--indent-xxl);
+}

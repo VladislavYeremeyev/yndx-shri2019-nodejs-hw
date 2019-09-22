@@ -1,0 +1,21 @@
+.Grid-Header {
+	grid-column: 1 / -1;
+	box-sizing: border-box;
+	min-height: 45px;
+	padding: 14px 8px 8px;
+
+	color: #b8bec3;
+
+	font-weight: bold;
+	line-height: 20px;
+}
+
+.Grid-Header:last-child {
+	text-align: right;
+}
+
+@media screen and (max-width: 640px) {
+	.Grid-Header {
+		display: none;
+	}
+}

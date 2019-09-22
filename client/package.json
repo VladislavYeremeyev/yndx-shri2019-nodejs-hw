@@ -1,0 +1,36 @@
+{
+  "name": "shri2019-layout-homework",
+  "version": "1.0.0",
+  "description": "Adaptive layout homework",
+  "main": "index.js",
+  "scripts": {
+		"start": "parcel src/index.pug",
+    "build": "parcel build src/index.pug -d build/ && parcel build src/directory_page.pug -d build/directory_page && parcel build src/file_history_page.pug -d build/file_history_page && parcel build src/file_inspection_page.pug -d build/file_inspection_page && parcel build src/commit_page.pug -d build/commit_page && parcel build src/branches_page.pug -d build/branches_page",
+    "lint-css": "stylelint 'src/**/*.css' --fix"
+  },
+  "author": "Vladislav Yeremeyev",
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-svg-sprite": "^1.3.0",
+    "serve": "^11.1.0"
+  },
+  "devDependencies": {
+    "csscomb": "^4.3.0",
+    "prettier": "^1.18.2",
+    "pug": "^2.0.4",
+    "stylelint": "^11.0.0",
+    "stylelint-config-airbnb": "0.0.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-prettier": "^1.1.1",
+    "stylelint-scss": "^3.11.0"
+  },
+  "svgSpriteOptions": {
+    "exclude": [
+      "**/common.blocks/**/*"
+    ]
+  }
+}

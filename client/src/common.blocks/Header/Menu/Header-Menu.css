@@ -1,0 +1,10 @@
+.Header-Menu {
+	height: 57px;
+	margin-left: var(--indent-xxxl);
+}
+
+@media screen and (max-width: 640px) {
+	.Header-Menu {
+		margin-left: var(--indent-xll);
+	}
+}

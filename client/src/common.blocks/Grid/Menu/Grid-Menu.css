@@ -1,0 +1,10 @@
+.Grid-Menu {
+	box-sizing: border-box;
+	height: 45px;
+	margin-top: 5px;
+}
+
+.Grid-Menu .TabMenu-Tab {
+	position: relative;
+	top: 1px;
+}

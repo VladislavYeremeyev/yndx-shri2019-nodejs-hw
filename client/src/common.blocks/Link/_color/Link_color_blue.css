@@ -1,0 +1,11 @@
+.Link_color_blue {
+	color: var(--link-text-color);
+}
+
+.Link_color_blue:visited {
+	color: var(--link-text-color);
+}
+
+.Link_color_blue:hover {
+	color: var(--link-text-color-hovered);
+}

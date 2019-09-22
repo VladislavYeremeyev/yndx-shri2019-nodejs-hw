@@ -1,0 +1,11 @@
+.Layout-Container_space-h_xxl {
+	padding-right: var(--indent-xxl);
+	padding-left: var(--indent-xxl);
+}
+
+@media screen and (max-width: 640px) {
+	.Layout-Container_space-h_xxl {
+		padding-right: calc(var(--indent-xxl) / 2);
+		padding-left: calc(var(--indent-xxl) / 2);
+	}
+}

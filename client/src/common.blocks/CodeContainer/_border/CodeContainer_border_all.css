@@ -1,0 +1,5 @@
+.CodeContainer_border_all {
+	border: 1px solid var(--border-color);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}

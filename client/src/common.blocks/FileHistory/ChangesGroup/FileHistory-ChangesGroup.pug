@@ -1,0 +1,17 @@
+.FileHistory-ChangesGroup
+	- for (var j = 0; j < 3; ++j) {
+		.FileHistoryChange
+			include ./../../FileHistoryChange/ChangeIcon/FileHistoryChange-ChangeIcon.pug
+			.FileHistoryChange-Description
+				.FileHistoryChange-Title
+					strong Support new distbuild protocol
+				.FileHistoryChange-Message
+					.Text.Text_size_xxxs.
+						Не очень качественно написаны некоторые функции. Предлагаю исправить это недоразумение.
+				.FileHistoryChange-Author.Text.Text_size_xxxs.
+					#[a.Link.Link_color_blue s324e8] by #[span.AuthorSpan woodcutter], 4 s ago
+			.FileHistoryChange-Commit #[a.Link.Link_color_blue s324e8]
+			.FileHistoryChange-ShowCodeIcon
+				.Link
+					svg(width="16" height="20"): use(href="./assets/show_code_icon.svg")
+	-}

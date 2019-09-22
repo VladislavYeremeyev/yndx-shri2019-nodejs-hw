@@ -1,0 +1,15 @@
+.Theme_space_default {
+	--indent-xxxs: 2px;
+	--indent-xxs: 4px;
+	--indent-xs: 8px;
+	--indent-s: 12px;
+	--indent-m: 16px;
+	--indent-l: 20px;
+	--indent-xb: 22px;
+	--indent-xl: 24px;
+	--indent-xll: 26px;
+	--indent-xxl: 32px;
+	--indent-xxxl: 40px;
+	--indent-xxxxl: 48px;
+	--indent-xxxxxl: 72px;
+}

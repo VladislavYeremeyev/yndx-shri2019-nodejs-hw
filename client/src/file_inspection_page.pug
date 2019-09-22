@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="ie=edge")
+		title Arcanum
+		link(rel="stylesheet" type="text/css" href="./styles.css")
+	body
+		.Layout.Theme.Theme_color_project-default.Theme_space_default.Theme_font_default
+			.Header.Layout-Container.Layout-Container_border_b.Layout-Container_space-h_xxl
+				include ./common.blocks/Header/Header.pug
+			.MainContentContainer.Layout-Container.Layout-Container_space-h_xxl
+				include ./common.blocks/Breadcrumbs/Breadcrumbs.pug
+				include ./common.blocks/DirectoryTitle/DirectoryTitle.pug
+				include ./common.blocks/DirectorySubTitle/DirectorySubTitle.pug
+				.Grid-Menu.TabMenu.TabMenu_border_b
+					.TabMenu-Tab.TabMenu-Tab_active.TabMenu-Tab_space-r_xxl
+						span.Text.Text_size_xs <strong>DETAILS</strong>
+					.TabMenu-Tab
+						span.Text.Text_size_xs <strong>HISTORY</strong>
+			.Layout-Container.Layout-Container_space-h_xxl.Layout-Container_expand
+				.CodeContainer.CodeContainer_border_all
+					.CodeContainer-Header
+						.CodeContainer-FileInfo
+							.CodeContainer-FileIcon
+								include ./common.blocks/FileIcon/FileIcon_type_script.pug
+							div #[strong ya.make]
+							.CodeContainer-BytesSpan (4 347 bytes)
+						.CodeContainer-DownloadIcon
+							svg(width="14", height="13"): use(href="./assets/download.svg")
+					.CodeContainer-CodeBlockContainer
+						//- Could be improved with loops and mixins but since the project will be ported to React
+						//- and connected with dynamic backend data it does not so necessary
+						table.CodeBlock
+							tbody
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_comment #!/usr/bin/env python]
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_reserved import] os
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_reserved import] sys
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_reserved import] platform
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_reserved import] json
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode URLS = [#[span.CodeBlock-Token.CodeBlock-Token_type_string 'https://proxy.sandbox.yandex-team.ru/453818264'], #[span.CodeBlock-Token.CodeBlock-Token_type_string 'http://storage-int.mds.yandex.net/get-sandbox/110738/by_platform.json.453815347']]
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode MD5 = #[span.CodeBlock-Token.CodeBlock-Token_type_string '7f5a85f9c28d35c3a76d8cea7af51106']
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode RETRIES = 5
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode HASH_PREFIX = 10
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode HOME_DIR = os.path.expanduser(#[span.CodeBlock-Token.CodeBlock-Token_type_string '~'])
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_reserved def] #[span.CodeBlock-Token.CodeBlock-Token_type_fn-name create_dirs](path):
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 		#[span.CodeBlock-Token.CodeBlock-Token_type_reserved try]:
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 				os.makedirs(path)
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 		#[span.CodeBlock-Token.CodeBlock-Token_type_reserved except] OSError #[span.CodeBlock-Token.CodeBlock-Token_type_reserved as] e:
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 				#[span.CodeBlock-Token.CodeBlock-Token_type_reserved import] errno
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 				#[span.CodeBlock-Token.CodeBlock-Token_type_reserved if] e.errno != errno.EEXIST:
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 						#[span.CodeBlock-Token.CodeBlock-Token_type_reserved raise]
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 		#[span.CodeBlock-Token.CodeBlock-Token_type_reserved return] path
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_reserved def] #[span.CodeBlock-Token.CodeBlock-Token_type_fn-name misc_root]():
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 		#[span.CodeBlock-Token.CodeBlock-Token_type_reserved return] create_dirs(os.getenv(#[span.CodeBlock-Token.CodeBlock-Token_type_string 'YA_CACHE_DIR']) #[span.CodeBlock-Token.CodeBlock-Token_type_reserved or] os.path.join(HOME_DIR, #[span.CodeBlock-Token.CodeBlock-Token_type_string '.ya']))
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_reserved def] #[span.CodeBlock-Token.CodeBlock-Token_type_fn-name tool_root]():
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_reserved def] #[span.CodeBlock-Token.CodeBlock-Token_type_fn-name create_dirs](path):
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 		#[span.CodeBlock-Token.CodeBlock-Token_type_reserved try]:
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 				os.makedirs(path)
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 		#[span.CodeBlock-Token.CodeBlock-Token_type_reserved except] OSError #[span.CodeBlock-Token.CodeBlock-Token_type_reserved as] e:
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 				#[span.CodeBlock-Token.CodeBlock-Token_type_reserved import] errno
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 				#[span.CodeBlock-Token.CodeBlock-Token_type_reserved if] e.errno != errno.EEXIST:
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 						#[span.CodeBlock-Token.CodeBlock-Token_type_reserved raise]
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 		#[span.CodeBlock-Token.CodeBlock-Token_type_reserved return] path
+			.Footer.Footer_text_secondary.Layout-Container.Layout-Container_border_t.Layout-Container_space-h_l
+				include ./common.blocks/Footer/Footer.pug
+		script(src='./index.js')

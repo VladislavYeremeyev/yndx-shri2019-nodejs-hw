@@ -1,0 +1,14 @@
+.Link {
+	color: unset;
+	text-decoration: none;
+
+	cursor: pointer;
+}
+
+.Link:visited {
+	color: unset;
+}
+
+.Link:hover {
+	color: var(--link-text-color-hovered);
+}

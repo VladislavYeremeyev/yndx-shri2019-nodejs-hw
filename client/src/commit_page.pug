@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="ie=edge")
+		title Arcanum
+		link(rel="stylesheet" type="text/css" href="./styles.css")
+	body
+		.Layout.Theme.Theme_color_project-default.Theme_space_default.Theme_font_default
+			.Header.Layout-Container.Layout-Container_border_b.Layout-Container_space-h_xxl
+				include ./common.blocks/Header/Header.pug
+			.MainContentContainer.Layout-Container.Layout-Container_space-h_xxl
+				.CommitInfoContainer
+					.CommitInfoContainer-Header
+						.CommitInfoContainer-NavigationPanel
+							.BackButton
+								svg(width="7" height="13"): use(href="./assets/back.svg")
+								.Text.Text_color_secondary Back
+							.ShowFilesButton
+								svg(width="12" height="10"): use(href="./assets/burger.svg")
+								.Text Show files at r4318347
+						.CommitInfoContainer-Title.
+							DEVTOOLS-4599: Add option to add extra whitespace between projects
+					.CommitInfoContainer-CommitSubTitle.
+						#[a.Link(href="#").Link_color_blue s324e8] by #[span.AuthorSpan woodcutter], 4s ago
+			.Layout-Container.Layout-Container_space-h_xxl.Layout-Container_expand
+				.CommitContainer.CodeContainer.CodeContainer_border_all
+					.CommitContainer-Header
+						.CommitContainer-FileInfo
+							.CommitContainer-ChangeType M
+							.CommitContainer-FileIcon
+								svg(width="12" height="15"): use(href="./assets/script_pale.svg")
+							.CommitContainer-FilePath /trunk/arcadia/devtools/intellij/src/main/java/ru/yandex/devtools/intellij/arc/client/ArcCli.java
+						.CommitContainer-DiffData
+							.CommitContainer-LineDiff
+								.CommitContainer-Additions +100
+								.CommitContainer-Deletions &minus;81
+							.CommitContainer-LinkToFile
+								svg(width="13" height="13"): use(href="./assets/link.svg")
+					.CommitContainer-LineNavigation
+						.CommitContainer-BlobCodeHunk @@ -270, 160  +270, 161 @@
+						.CommitContainer-NavigateButton.CommitContainer-NavigateButton_color_pale
+							svg(width="12" height="10"): use(href="./assets/small_arrow_bottom.svg")
+							.CommitContainer-NavigateBelow Below 20 lines
+						.CommitContainer-NavigateButton
+							svg(width="12" height="10"): use(href="./assets/small_arrow_top.svg")
+							.CommitContainer-NavigateAbove Above 20 lines
+					.CodeContainer-CodeBlockContainer
+						//- Could be improved with loops and mixins but since the project will be ported to React
+						//- and connected with dynamic backend data it does not so necessary
+						table.CodeBlock
+							tbody
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode package ru.yandex.devtools.intellij.arc.client;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line.CodeBlock-Line_type_addition
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] java.util.ArrayList;
+								tr.CodeBlock-Line.CodeBlock-Line_type_addition
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] java.util.Collection;
+								tr.CodeBlock-Line.CodeBlock-Line_type_addition
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] java.util.List;
+								tr.CodeBlock-Line.CodeBlock-Line_type_addition
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.diagnostic.Logger;
+								tr.CodeBlock-Line.CodeBlock-Line_type_addition
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.Project;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.FilePath;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.VcsException;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.VirtualFile;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.VcsUtil;
+								tr.CodeBlock-Line.CodeBlock-Line_type_addition
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.NotNull;
+								tr.CodeBlock-Line.CodeBlock-Line_type_addition
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.NotNull;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.NotNull;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.NotNull;
+								tr.CodeBlock-Line.CodeBlock-Line_type_addition
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.NotNull;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line.CodeBlock-Line_type_deletion
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.NotNull;
+								tr.CodeBlock-Line.CodeBlock-Line_type_deletion
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.NotNull;
+								tr.CodeBlock-Line.CodeBlock-Line_type_deletion
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved import] com.intellij.openapi.project.NotNull;
+								tr.CodeBlock-Line.CodeBlock-Line_type_deletion
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank
+									td.CodeBlock-BlobCode &nbsp;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-comment /**]
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-comment  * @author Dmitry Andreev]
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_blank.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-comment  * @date 11/10/2018]
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode #[span.CodeBlock-Token.CodeBlock-Token_type_java-comment */]
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode  #[span.CodeBlock-Token.CodeBlock-Token_type_java-reserved public] #[span.CodeBlock-Token.CodeBlock-Token_type_java-fn-name ArcCli](#[span.CodeBlock-Token.CodeBlock-Token_type_java-fn-name String] arcBinaryPath) {
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 				this.arcBinaryPath = arcBinaryPath;
+								tr.CodeBlock-Line
+									td.CodeBlock-BlobNum.CodeBlock-BlobNum_old
+									td.CodeBlock-BlobNum
+									td.CodeBlock-BlobCode 		}
+					.CommitContainer-LineNavigation
+						.CommitContainer-BlobCodeHunk @@ -270, 160  +270, 161 @@
+						.CommitContainer-NavigateButton.CommitContainer-NavigateButton_color_pale
+							svg(width="12" height="10"): use(href="./assets/small_arrow_bottom.svg")
+							.CommitContainer-NavigateBelow Below 20 lines
+						.CommitContainer-NavigateButton
+							svg(width="12" height="10"): use(href="./assets/small_arrow_top.svg")
+							.CommitContainer-NavigateAbove Above 20 lines
+			.Footer.Footer_text_secondary.Layout-Container.Layout-Container_border_t.Layout-Container_space-h_l
+				include ./common.blocks/Footer/Footer.pug
+		script(src='./index.js')

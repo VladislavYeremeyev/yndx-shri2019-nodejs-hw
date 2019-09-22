@@ -1,0 +1,7 @@
+.AuthorSpan {
+	display: inline-block;
+}
+
+.AuthorSpan:first-letter {
+	color: var(--first-letter-color);
+}

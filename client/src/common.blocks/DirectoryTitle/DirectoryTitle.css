@@ -1,0 +1,9 @@
+.DirectoryTitle {
+	display: flex;
+}
+
+@media screen and (max-width: 640px) {
+	.DirectoryTitle .Text {
+		font-size: 20px;
+	}
+}

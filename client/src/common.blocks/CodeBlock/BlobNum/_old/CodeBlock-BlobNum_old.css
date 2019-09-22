@@ -1,0 +1,10 @@
+.CodeBlock-BlobNum_old {
+	padding-right: 15px;
+}
+
+.CodeBlock-BlobNum_old:not(.CodeBlock-BlobNum_blank):before {
+	content: counter(blob_old_line_number);
+	counter-increment: blob_old_line_number;
+
+	/* content: attr(data-line-number); */
+}

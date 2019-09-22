@@ -1,0 +1,12 @@
+.FileHistoryChange-ChangeIcon {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 40px;
+	min-height: 40px;
+
+	background-color: #ebf6fd;
+	border-radius: 50%;
+}

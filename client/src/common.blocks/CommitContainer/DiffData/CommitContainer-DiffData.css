@@ -1,0 +1,10 @@
+.CommitContainer-DiffData {
+	display: flex;
+	justify-content: space-between;
+}
+
+@media screen and (max-width: 640px) {
+	.CommitContainer-DiffData {
+		margin-top: 10px;
+	}
+}

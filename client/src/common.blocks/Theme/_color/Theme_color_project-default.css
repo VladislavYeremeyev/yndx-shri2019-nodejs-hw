@@ -1,0 +1,16 @@
+.Theme_color_project-default {
+	--default-bg-color: #ffffff;
+
+	/* Layout-Container border color */
+	--lc-border-color: #f0f2f3;
+
+	--accent-bg-color: #ff4f49;
+	--first-letter-color: #ff3029;
+	--border-color: #e5e5e5;
+	--grid-border: #f2f2f2;
+
+	--primary-text-color: #000000;
+	--secondary-text-color: #7f8285;
+	--link-text-color: #1774e9;
+	--link-text-color-hovered: red;
+}

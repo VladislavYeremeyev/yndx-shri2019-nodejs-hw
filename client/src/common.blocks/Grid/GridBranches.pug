@@ -1,0 +1,14 @@
+.Grid
+	.Grid-Header.Grid-Header_border_b.Grid.Grid_m-columns_12
+		.Grid-Fraction.Grid-Fraction_m-col_8 Name
+		.Grid-Fraction.Grid-Fraction_m-col_4.Grid-Fraction_text-align_right Commit hash
+		include ./gridBranchesData.pug
+	- for (var i = 0; i < data.length; ++i) {
+		.Grid-Row.Grid-Row_border_b.Grid.Grid_m-columns_12(class=i === 11 ? "Grid-Row_border_none" : "")
+			.Grid-Branch.Grid-File.Grid-Fraction.Grid-Fraction_m-col_6
+				.FileIcon
+					svg(width="9", height="20"): use(href="./assets/branch.svg")
+				.Grid-FileName.Grid-FileName_text_bold= data[i].name
+			.Grid-BranchCommitHash.Grid-Fraction.Grid-Fraction.Grid-Fraction_m-col_6.Grid-Fraction_text-align_right
+				a.Link(href="#").Link_color_blue= data[i].hash
+	- }

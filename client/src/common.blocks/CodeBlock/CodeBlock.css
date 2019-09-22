@@ -1,0 +1,14 @@
+.CodeBlock {
+	width: 100%;
+
+	color: #00234b;
+	font-family: "PT Mono", monospace;
+
+	border-spacing: 0;
+
+	counter-reset: blob_line_number blob_old_line_number;
+}
+
+.CodeBlock td {
+	display: inline-block;
+}

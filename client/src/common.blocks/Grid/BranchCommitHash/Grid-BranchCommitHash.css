@@ -1,0 +1,7 @@
+@media screen and (max-width: 640px) {
+	.Grid-BranchCommitHash {
+		margin-bottom: 4px;
+
+		text-align: left;
+	}
+}

@@ -1,0 +1,29 @@
+.Grid
+	.Grid-Header.Grid-Header_border_b.Grid.Grid_m-columns_12
+		.Grid-Fraction.Grid-Fraction_m-col_2 Name
+		.Grid-Fraction.Grid-Fraction_m-col_2 Last commit
+		.Grid-Fraction.Grid-Fraction_m-col_4 Commit message
+		.Grid-Fraction.Grid-Fraction_m-col_2 Committer
+		.Grid-Fraction.Grid-Fraction_m-col_2.Grid-Fraction_text-align_right Updated
+		include ./gridData.pug
+	- for (var i = 0; i < data.length; ++i) {
+		.Grid-Row.Grid-Row_border_b.Grid.Grid_m-columns_12(class=i === 11 ? "Grid-Row_border_none" : "")
+			.Grid-File.Grid-Fraction.Grid-Fraction_m-col_2
+				.FileIcon(class="FileIcon_type_" + data[i].type)
+					case data[i].type
+						when "folder"
+							include ../FileIcon/FileIcon_type_folder.pug
+						when "script"
+							include ../FileIcon/FileIcon_type_script.pug
+						when "config"
+							include ../FileIcon/FileIcon_type_config.pug
+				.Grid-FileName(class=data[i].type === "folder" ? "Grid-FileName_text_bold" : "")= data[i].name
+			.Grid-CommitHash.Grid-Fraction.Grid-Fraction_m-col_2
+				a.Link(href="#").Link_color_blue= data[i].commit
+				.Grid-CommitInfo= data[i].commit_info
+			.Grid-CommitMessage.Grid-Fraction.Grid-Fraction.Grid-Fraction_m-col_4.
+				#{data[i].message}
+			.Grid-Committer.Grid-Fraction.Grid-Fraction.Grid-Fraction_m-col_2
+				span.AuthorSpan= data[i].committer
+			.Grid-UpdateDate.Grid-Fraction.Grid-Fraction.Grid-Fraction_m-col_2.Grid-Fraction_text-align_right= data[i].updated
+	- }

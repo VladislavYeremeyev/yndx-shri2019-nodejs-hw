@@ -1,0 +1,11 @@
+.CommitInfoContainer {
+	display: flex;
+	flex-direction: column;
+	margin: 16px 0 8px;
+}
+
+@media screen and (max-width: 640px) {
+	.CommitInfoContainer {
+		margin: 0;
+	}
+}

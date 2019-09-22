@@ -1,0 +1,8 @@
+.CodeContainer {
+	display: flex;
+	flex-direction: column;
+	margin-top: 16px;
+	margin-bottom: 16px;
+
+	line-height: 20px;
+}

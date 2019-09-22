@@ -1,0 +1,7 @@
+.FileHistoryChange-Description {
+	flex-grow: 1;
+}
+
+.FileHistoryChange:not(:last-child) .FileHistoryChange-Description {
+	margin-bottom: 14px;
+}

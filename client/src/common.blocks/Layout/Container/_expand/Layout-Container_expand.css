@@ -1,0 +1,6 @@
+@media screen and (max-width: 640px) {
+	.Layout-Container_expand {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}

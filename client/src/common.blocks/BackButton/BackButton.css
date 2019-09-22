@@ -1,0 +1,21 @@
+.BackButton {
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+
+.BackButton .Text {
+	margin-left: 6px;
+}
+
+.BackButton:hover .Text {
+	color: red;
+
+	cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+	.BackButton {
+		display: flex;
+	}
+}
