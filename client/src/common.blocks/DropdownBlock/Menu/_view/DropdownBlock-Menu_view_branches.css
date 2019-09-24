@@ -1,0 +1,20 @@
+.DropdownBlock-Menu_view_branches {
+	min-width: 320px;
+	max-height: 360px;
+	overflow-y: scroll;
+
+	box-shadow: 0px 4px 16px rgba(53, 73, 93, 0.2);
+
+	/* , inset 0 -20px 20px -10px rgb(241, 241, 241) */
+}
+
+/* Hiding scroll-bar in webkit */
+.DropdownBlock-Menu_view_branches::-webkit-scrollbar {
+	display: none;
+}
+
+@media screen and (min-width: 640px) {
+	.DropdownBlock-Menu_view_branches {
+		border-radius: 5px;
+	}
+}

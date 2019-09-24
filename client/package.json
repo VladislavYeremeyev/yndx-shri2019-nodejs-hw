@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
 		"start": "parcel src/index.pug",
-    "build": "parcel build src/index.pug -d build/ && parcel build src/directory_page.pug -d build/directory_page && parcel build src/file_history_page.pug -d build/file_history_page && parcel build src/file_inspection_page.pug -d build/file_inspection_page && parcel build src/commit_page.pug -d build/commit_page && parcel build src/branches_page.pug -d build/branches_page",
+    "build": "parcel build src/index.pug -d build/",
     "lint-css": "stylelint 'src/**/*.css' --fix"
   },
   "author": "Vladislav Yeremeyev",

@@ -37,6 +37,11 @@
 @import "./common.blocks/DropdownBlock/Overlay/DropdownBlock-Overlay.css";
 @import "./common.blocks/DropdownBlock/MenuHandle/DropdownBlock-MenuHandle.css";
 @import "./common.blocks/DropdownBlock/HandleBar/DropdownBlock-HandleBar.css";
+@import "./common.blocks/DropdownBlock/Menu/_view/DropdownBlock-Menu_view_branches.css";
+@import "./common.blocks/DropdownBlock/LastUpdate/DropdownBlock-LastUpdate.css";
+@import "./common.blocks/DropdownBlock/BranchName/DropdownBlock-BranchName.css";
+@import "./common.blocks/DropdownBlock/MenuItem/_current/DropdownBlock-MenuItem_current.css";
+@import "./common.blocks/DropdownBlock/Delimeter/DropdownBlock-Delimeter.css";
 
 @import "./common.blocks/MainContentContainer/MainContentContainer.css";
 
@@ -95,6 +100,7 @@
 @import "./common.blocks/CodeContainer/BytesSpan/CodeContainer-BytesSpan.css";
 @import "./common.blocks/CodeBlock/Line/CodeBlock-Line.css";
 @import "./common.blocks/CodeContainer/CodeBlockContainer/CodeContainer-CodeBlockContainer.css";
+@import "./common.blocks/CodeContainer/CodeBlockContainer/_space/CodeContainer-CodeBlockContainer_space_xl.css";
 @import "./common.blocks/CodeBlock/BlobNum/CodeBlock-BlobNum.css";
 @import "./common.blocks/CodeBlock/BlobNum/_old/CodeBlock-BlobNum_old.css";
 @import "./common.blocks/CodeBlock/CodeBlock.css";

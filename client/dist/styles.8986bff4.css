@@ -305,8 +305,18 @@
 	line-height: 20px;
 }
 
-.DropdownBlock-MenuItem:hover {
+.DropdownBlock-Menu_view_branches .DropdownBlock-MenuItem {
+	box-sizing: border-box;
+	min-height: 58px;
+}
+
+.DropdownBlock-MenuItem:not(.DropdownBlock-MenuItem_current):hover {
 	background-color: rgba(255, 204, 0, 0.2);
+}
+
+.DropdownBlock-Menu_view_branches
+	.DropdownBlock-MenuItem:not(.DropdownBlock-MenuItem_current):hover {
+	background-color: #f4f5f6;
 }
 
 .DropdownBlock_color_pale:after {
@@ -353,6 +363,55 @@
 
 	background: #e5e5e5;
 	border-radius: 10px;
+}
+
+.DropdownBlock-Menu_view_branches {
+	min-width: 320px;
+	max-height: 360px;
+	overflow-y: scroll;
+
+	box-shadow: 0px 4px 16px rgba(53, 73, 93, 0.2);
+
+	/* , inset 0 -20px 20px -10px rgb(241, 241, 241) */
+}
+
+/* Hiding scroll-bar in webkit */
+.DropdownBlock-Menu_view_branches::-webkit-scrollbar {
+	display: none;
+}
+
+@media screen and (min-width: 640px) {
+	.DropdownBlock-Menu_view_branches {
+		border-radius: 5px;
+	}
+}
+
+.DropdownBlock-LastUpdate {
+	color: #7f8285;
+}
+
+.DropdownBlock-BranchName {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.DropdownBlock-MenuItem_current {
+	background: #4f4f4f;
+}
+
+.DropdownBlock-MenuItem_current .DropdownBlock-BranchName {
+	color: #f2f2f2;
+}
+
+.DropdownBlock-MenuItem_current .DropdownBlock-LastUpdate {
+	color: #e0e0e0;
+}
+
+.DropdownBlock-Delimeter {
+	height: 1px;
+	margin: 4px 12px;
+
+	background: #e5e5e5;
 }
 
 .MainContentContainer {
@@ -791,6 +850,10 @@
 	padding: 6px 0;
 	overflow-x: auto;
 	overflow-y: hidden;
+}
+
+.CodeContainer-CodeBlockContainer_space_xl {
+	padding: 8px 32px;
 }
 
 .CodeBlock-BlobNum {

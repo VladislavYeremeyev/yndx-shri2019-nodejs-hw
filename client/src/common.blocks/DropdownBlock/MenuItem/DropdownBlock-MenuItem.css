@@ -5,6 +5,16 @@
 	line-height: 20px;
 }
 
-.DropdownBlock-MenuItem:hover {
+.DropdownBlock-Menu_view_branches .DropdownBlock-MenuItem {
+	box-sizing: border-box;
+	min-height: 58px;
+}
+
+.DropdownBlock-MenuItem:not(.DropdownBlock-MenuItem_current):hover {
 	background-color: rgba(255, 204, 0, 0.2);
+}
+
+.DropdownBlock-Menu_view_branches
+	.DropdownBlock-MenuItem:not(.DropdownBlock-MenuItem_current):hover {
+	background-color: #f4f5f6;
 }

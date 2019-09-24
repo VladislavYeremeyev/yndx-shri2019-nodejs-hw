@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="ie=edge")
+		title Arcanum
+		link(rel="stylesheet" type="text/css" href="./styles.css")
+	body
+		.Layout.Theme.Theme_color_project-default.Theme_space_default.Theme_font_default
+			.Header.Layout-Container.Layout-Container_border_b.Layout-Container_space-h_xxl
+				include ./common.blocks/Header/Header.pug
+			.MainContentContainer.Layout-Container.Layout-Container_space-h_xxl
+				include ./common.blocks/Breadcrumbs/Breadcrumbs.pug
+				include ./common.blocks/DirectoryTitle/DirectoryTitle.pug
+				include ./common.blocks/DirectorySubTitle/DirectorySubTitle.pug
+				.Grid-Menu.TabMenu.TabMenu_border_b
+					.TabMenu-Tab.TabMenu-Tab_active.TabMenu-Tab_space-r_xxl
+						span.Text.Text_size_xs <strong>FILES</strong>
+					.TabMenu-Tab
+						span.Text.Text_size_xs <strong>BRANCHES</strong>
+				.Grid
+					.Grid-Header.Grid-Header_border_b.Grid.Grid_m-columns_12
+						.Grid-Fraction.Grid-Fraction_m-col_2 Name
+						.Grid-Fraction.Grid-Fraction_m-col_2 Last commit
+						.Grid-Fraction.Grid-Fraction_m-col_4 Commit message
+						.Grid-Fraction.Grid-Fraction_m-col_2 Committer
+						.Grid-Fraction.Grid-Fraction_m-col_2.Grid-Fraction_text-align_right Updated
+						include ./common.blocks/Grid/gridData.pug
+					- for (var i = 5; i < data.length; ++i) {
+						.Grid-Row.Grid-Row_border_b.Grid.Grid_m-columns_12(class=i === 11)
+							.Grid-File.Grid-Fraction.Grid-Fraction_m-col_2
+								.FileIcon(class="FileIcon_type_" + data[i].type)
+									case data[i].type
+										when "folder"
+											include ./common.blocks/FileIcon/FileIcon_type_folder.pug
+										when "script"
+											include ./common.blocks//FileIcon/FileIcon_type_script.pug
+										when "config"
+											include ./common.blocks//FileIcon/FileIcon_type_config.pug
+								.Grid-FileName(class=data[i].type === "folder" ? "Grid-FileName_text_bold" : "")= data[i].name
+							.Grid-CommitHash.Grid-Fraction.Grid-Fraction_m-col_2
+								a.Link(href="#").Link_color_blue= data[i].commit
+								.Grid-CommitInfo= data[i].commit_info
+							.Grid-CommitMessage.Grid-Fraction.Grid-Fraction.Grid-Fraction_m-col_4.
+								#{data[i].message}
+							.Grid-Committer.Grid-Fraction.Grid-Fraction.Grid-Fraction_m-col_2
+								span.AuthorSpan= data[i].committer
+							.Grid-UpdateDate.Grid-Fraction.Grid-Fraction.Grid-Fraction_m-col_2.Grid-Fraction_text-align_right= data[i].updated
+					- }
+			.Layout-Container.Layout-Container_space-h_xxl.Layout-Container_expand
+				.CodeContainer.CodeContainer_border_all
+					.CodeContainer-Header
+						.CodeContainer-FileInfo
+							.CodeContainer-FileIcon
+								svg(width="14" height="13"): use(href="./assets/document.svg")
+							div README.md
+					.CodeContainer-CodeBlockContainer.CodeContainer-CodeBlockContainer_space_xl
+						h2 Плагины и конфиги комбайна
+						p Плагины - статически собираются в образ, любая модификация требует пересборки образа и перевыкатки сервиса. Перед перевыкаткой нужно не забыть поменять layers на новый, версию предыдущего layer можно посмотреть в сервисе. https://nanny.yandex-team.ru/ui/#/services/dashboards/catalog/combaine/
+						p Конфиги - деплоятся динамически через deploy-configs.py, который запускается по крону на всех комбайнах. Скрипт generator.py и deploy-configs.py деплоятся динамически вместе с конфигами. Каталог configs poll-ится на измененние svn ревизии раз в минуту, поэтому задержка деплоя конфигов в комбайн должна быть не больше минуты с момента мерджа в транк.
+			.Footer.Footer_text_secondary.Layout-Container.Layout-Container_border_t.Layout-Container_space-h_l
+				include ./common.blocks/Footer/Footer.pug
+		script(src='./index.js')

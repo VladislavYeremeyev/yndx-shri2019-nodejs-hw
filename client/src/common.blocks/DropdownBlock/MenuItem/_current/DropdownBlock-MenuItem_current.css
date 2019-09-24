@@ -1,0 +1,11 @@
+.DropdownBlock-MenuItem_current {
+	background: #4f4f4f;
+}
+
+.DropdownBlock-MenuItem_current .DropdownBlock-BranchName {
+	color: #f2f2f2;
+}
+
+.DropdownBlock-MenuItem_current .DropdownBlock-LastUpdate {
+	color: #e0e0e0;
+}
