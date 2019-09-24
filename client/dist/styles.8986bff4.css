@@ -1210,6 +1210,61 @@
 	margin-left: 6px;
 }
 
+.RepoItemsList {
+	display: grid;
+	grid-gap: 18px;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	margin-top: 22px;
+
+	font-size: 18px;
+}
+
+@media screen and (max-width: 640px) {
+	.RepoItemsList {
+		grid-gap: 8px;
+		margin-top: 10px;
+
+		font-size: 16px;
+	}
+}
+
+.RepoItemsList-Item {
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	height: 54px;
+	padding: 0 24px;
+
+	border-bottom: 3px solid #b8bec3;
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+
+.RepoItemsList-Item:hover {
+	background-color: rgba(255, 204, 0, 0.3);
+	cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+	.RepoItemsList-Item {
+		height: 44px;
+		padding: 0 16px;
+	}
+}
+
+.RepoItemsList-Item_border-color_purple {
+	border-color: #9a77ff;
+}
+
+.RepoItemsList-ItemName {
+	width: 80%;
+	margin-left: 12px;
+	overflow: hidden;
+
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
 .Footer {
 	display: flex;
 

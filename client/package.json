@@ -4,7 +4,7 @@
   "description": "Adaptive layout homework",
   "main": "index.js",
   "scripts": {
-		"start": "parcel src/index.pug",
+    "start": "parcel src/index.pug",
     "build": "parcel build src/index.pug -d build/",
     "lint-css": "stylelint 'src/**/*.css' --fix"
   },

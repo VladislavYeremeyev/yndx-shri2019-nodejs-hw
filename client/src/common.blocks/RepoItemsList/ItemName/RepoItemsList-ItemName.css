@@ -1,0 +1,8 @@
+.RepoItemsList-ItemName {
+	width: 80%;
+	margin-left: 12px;
+	overflow: hidden;
+
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

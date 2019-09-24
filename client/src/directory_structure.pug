@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="ie=edge")
+		title Arcanum
+		link(rel="stylesheet" type="text/css" href="./styles.css")
+	body
+		.Layout.Theme.Theme_color_project-default.Theme_space_default.Theme_font_default
+			//- parcel svg sprite plugin has a bug that hide logo via Pug include, so i inserted snippet here :(
+			.Header.Layout-Container.Layout-Container_border_b.Layout-Container_space-h_xxl
+				.Header-Logo
+					include ./assets/logo.svg 
+				.Header-Menu.TabMenu
+					.DropdownBlock
+						.TabMenu-Tab.TabMenu-Tab_active 
+							span.Text <strong>Repository</strong> Arc
+						.DropdownBlock-Overlay
+						ul.DropdownBlock-Menu
+							.DropdownBlock-MenuHandle
+								.DropdownBlock-HandleBar
+							li.DropdownBlock-MenuItem Arc
+							li.DropdownBlock-MenuItem My repository
+							li.DropdownBlock-MenuItem Devtools-team repository
+			.MainContentContainer.Layout-Container.Layout-Container_space-h_xxl
+				include ./common.blocks/Breadcrumbs/Breadcrumbs.pug
+				include ./common.blocks/DirectoryTitle/DirectoryTitle.pug
+				include ./common.blocks/DirectorySubTitle/DirectorySubTitle.pug
+				.Grid-Menu.TabMenu.TabMenu_border_b
+					.TabMenu-Tab.TabMenu-Tab_active.TabMenu-Tab_space-r_xxl
+						span.Text.Text_size_xs <strong>FILES</strong>
+					.TabMenu-Tab
+						span.Text.Text_size_xs <strong>BRANCHES</strong>
+				.RepoItemsList
+					- for (var i = 0; i < 15; ++i) {
+						.RepoItemsList-Item(class=i % 4 === 0 ? "RepoItemsList-Item_border-color_purple" : "")
+							//- parcel-svg-sprite bug :(
+							svg(width="20" height="20"): use(href="./assets/folder_big.svg")
+							.RepoItemsList-ItemName
+								strong=(i === 3 ? "LONG FOLDER NAME" : "api") 
+					- }
+			.Footer.Footer_text_secondary.Layout-Container.Layout-Container_border_t.Layout-Container_space-h_l
+				include ./common.blocks/Footer/Footer.pug
+		script(src='./index.js')
