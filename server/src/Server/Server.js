@@ -12,7 +12,9 @@ class Server {
 
 	run() {
 		const server = express();
+		const cors = require('cors');
 		const port = 3000;
+		server.use(cors());
 
 		server.use(bodyParser.json());
 
@@ -140,7 +142,12 @@ class Server {
 							});
 						} else {
 							res.json({
-								data: result.trim().split('\n')
+								data: [
+									...new Set(result
+										.trim()
+										.split('\n')
+										.map(elem => elem.indexOf('/') > -1 ? elem.split('/')[0] : elem))]
+									.sort((a) => a.indexOf('.'))
 							});
 						}
 					});
