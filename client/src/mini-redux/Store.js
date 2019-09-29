@@ -13,7 +13,6 @@ class Store {
 	}
 
 	dispatch(action) {
-		//If action is function call this function else run reducer
 		if (typeof action === 'function') {
 			action(this.dispatch.bind(this));
 			return;

@@ -1265,6 +1265,10 @@
 	text-overflow: ellipsis;
 }
 
+.SearchInput {
+	margin: 20px 0;
+}
+
 .Footer {
 	display: flex;
 

@@ -1,13 +1,13 @@
 import View from './View';
 
-import { showFilesList, findFilesByName } from './middleware';
+import { findFilesByName } from './middleware';
 
 class InputView extends View {
 	constructor(el, store) {
 		super(el, store);
 		this._onInput = this._onInput.bind(this);
 		this._el.addEventListener('input', this._onInput);
-		store.dispatch(showFilesList(''));
+		store.dispatch(findFilesByName(''));
 	}
 
 	destroy() {
@@ -20,11 +20,7 @@ class InputView extends View {
 
 		let store = this._store;
 		this._throttling = setTimeout(function() {
-			if (event.target.value !== '') {
-				store.dispatch(findFilesByName(event.target.value));
-			} else {
-				store.dispatch(showFilesList(event.target.value));
-			}
+			store.dispatch(findFilesByName(event.target.value));
 		}, 500);
 	}
 

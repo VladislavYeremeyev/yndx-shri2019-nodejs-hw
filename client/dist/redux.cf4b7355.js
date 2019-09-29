@@ -153,7 +153,6 @@ function () {
   }, {
     key: "dispatch",
     value: function dispatch(action) {
-      //If action is function call this function else run reducer
       if (typeof action === 'function') {
         action(this.dispatch.bind(this));
         return;
@@ -198,9 +197,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var ActionTypes = {
+  INIT: 'init',
   SET_NAME: 'SET_NAME',
-  SET_FILES: 'SET_FILES',
-  INIT: 'init'
+  SET_FILES: 'SET_FILES'
 };
 var _default = ActionTypes;
 exports.default = _default;
@@ -324,53 +323,150 @@ var setFilesAction = function setFilesAction(files) {
 };
 
 exports.setFilesAction = setFilesAction;
-},{"./ActionTypes":"mini-redux/ActionTypes.js"}],"mini-redux/middleware.js":[function(require,module,exports) {
+},{"./ActionTypes":"mini-redux/ActionTypes.js"}],"mini-redux/filesData.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.findFilesByName = exports.showFilesList = void 0;
+exports.default = void 0;
+var _default = [{
+  name: 'api',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'kek',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'data',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'dev',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'zip',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'ast',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'zip2',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'api2',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'zen',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'arcadia',
+  type: 'folder',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'README.md',
+  type: 'script',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}, {
+  name: 'ya.make',
+  type: 'config',
+  commit: 'd53dsv',
+  commit_info: 'by Alexey Besedin, 4 s ago',
+  message: '[vcs] move http to arc',
+  committer: 'noxoomo',
+  updated: '4 s ago'
+}];
+exports.default = _default;
+},{}],"mini-redux/middleware.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.findFilesByName = void 0;
 
 var _Actions = require("./Actions");
 
-var showFilesList = function showFilesList(name) {
-  return function (dispatch) {
-    return fetch('http://localhost:3000/api/repos').then(function (response) {
-      return response.json();
-    }).then(function (files) {
-      var filteredFilesList = files.filter(function (file) {
-        return file.id.toLowerCase().includes(name.toLowerCase());
-      });
-      dispatch((0, _Actions.setFilesAction)(filteredFilesList));
-      dispatch((0, _Actions.setNameAction)(name));
-    }).catch(function (err) {
-      return console.log(err);
-    });
-  };
-};
+var _filesData = _interopRequireDefault(require("./filesData"));
 
-exports.showFilesList = showFilesList;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var findFilesByName = function findFilesByName(name) {
   return function (dispatch) {
-    return fetch('http://localhost:3000/api/repos/task-1/tree/dev/').then(function (response) {
-      console.log(response.json());
-      return response.json();
-    }).then(function (files) {
-      var filteredFilesList = files.filter(function (file) {
-        return file.id.toLowerCase().includes(name.toLowerCase());
-      });
-      dispatch((0, _Actions.setFilesAction)(filteredFilesList));
-      dispatch((0, _Actions.setNameAction)(name));
-    }).catch(function (err) {
-      return console.log(err);
+    // return fetch('http://localhost:3000/api/repos/task-1/tree/dev/')
+    // 	.then(response => response.json())
+    // 	.then(files => {
+    // 		const filteredFilesList = files.data.filter(file => {
+    // 			return file.toLowerCase().includes(name.toLowerCase());
+    // 		});
+    // 		dispatch(setFilesAction(filteredFilesList));
+    // 		dispatch(setNameAction(name));
+    // 	})
+    // 	.catch(err => console.log(err));
+    var filteredFilesList = _filesData.default.filter(function (file) {
+      return file.name.toLowerCase().includes(name.toLowerCase());
+    }).map(function (file) {
+      return file.name;
     });
+
+    dispatch((0, _Actions.setFilesAction)(filteredFilesList));
+    dispatch((0, _Actions.setNameAction)(name));
   };
 };
 
 exports.findFilesByName = findFilesByName;
-},{"./Actions":"mini-redux/Actions.js"}],"mini-redux/InputView.js":[function(require,module,exports) {
+},{"./Actions":"mini-redux/Actions.js","./filesData":"mini-redux/filesData.js"}],"mini-redux/InputView.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -421,7 +517,7 @@ function (_View) {
 
     _this._el.addEventListener('input', _this._onInput);
 
-    store.dispatch((0, _middleware.showFilesList)(''));
+    store.dispatch((0, _middleware.findFilesByName)(''));
     return _this;
   }
 
@@ -438,11 +534,7 @@ function (_View) {
       clearTimeout(this._throttling);
       var store = this._store;
       this._throttling = setTimeout(function () {
-        if (event.target.value !== '') {
-          store.dispatch((0, _middleware.findFilesByName)(event.target.value));
-        } else {
-          store.dispatch((0, _middleware.showFilesList)(event.target.value));
-        }
+        store.dispatch((0, _middleware.findFilesByName)(event.target.value));
       }, 500);
     }
   }, {
@@ -512,7 +604,7 @@ function (_View) {
     value: function render(_ref) {
       var files = _ref.files;
       var filesList = files.map(function (file) {
-        return "\n\t\t\t\t\t<div class=\"Grid-Row Grid-Row_border_b Grid.Grid_m-columns_12\">\n\t\t\t\t\t\t<div class=\"Grid-File Grid-Fraction Grid-Fraction_m-col_2\">\n\t\t\t\t\t\t\t<div class=\"FileIcon FileIcon_type_folder\"></div>\n\t\t\t\t\t\t\t<div class=\"Grid-FileName Grid-FileName_text_bold\">".concat(file, "</div>\n\t\t\t\t\t\t<div class=\"Grid-CommitHash Grid-Fraction Grid-Fraction_m-col_2\">\n\t\t\t\t\t\t\t<a href=\"#\" class=\"Link Link_color_blue>adasdasdasd</div>\n\t\t\t\t\t\t\t<div class=\"Grid-CommitInfo\">KEK</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"Grid-CommitMessage Grid-Fraction Grid-Fraction_m-col_4\">\n\t\t\t\t\t\t\tKEK\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"Grid-Committer Grid-Fraction Grid-Fraction_m-col_2\">\n\t\t\t\t\t\t\t<span class=\"AuthorSpan\">author</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"Grid-UpdateDate Grid-Fraction Grid-Fraction Grid-Fraction_m-col_2 Grid-Fraction_text-align_right> date\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t");
+        return "\n\t\t\t\t\t<div class=\"Grid-Row Grid-Row_border_b Grid Grid_m-columns_12\">\n\t\t\t\t\t\t<div class=\"Grid-File Grid-Fraction Grid-Fraction_m-col_2\">\n\t\t\t\t\t\t\t<div class=\"FileIcon FileIcon_type_folder\">\n\t\t\t\t\t\t\t\t<svg width=\"12\" height=\"9\" viewBox=\"0 0 12 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n\t\t\t\t\t\t\t\t<path d=\"M10.875 1.5H6.375L4.875 0H1.125C0.492188 0 0 0.515625 0 1.125V7.875C0 8.50781 0.492188 9 1.125 9H10.875C11.4844 9 12 8.50781 12 7.875V2.625C12 2.01562 11.4844 1.5 10.875 1.5Z\" fill=\"black\"/>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"Grid-FileName Grid-FileName_text_bold\">".concat(file, "</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"Grid-CommitHash Grid-Fraction Grid-Fraction_m-col_2\">\n\t\t\t\t\t\t\t<a href=\"#\" class=\"Link Link_color_blue\">d53dsv</a>\n\t\t\t\t\t\t\t<div class=\"Grid-CommitInfo\">by Alexey Besedin, 4 s ago</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"Grid-CommitMessage Grid-Fraction Grid-Fraction_m-col_4\">[vcs] move http to arc</div>\n\t\t\t\t\t\t<div class=\"Grid-Committer Grid-Fraction Grid-Fraction_m-col_2\">\n\t\t\t\t\t\t\t<span class=\"AuthorSpan\">author</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"Grid-UpdateDate Grid-Fraction Grid-Fraction Grid-Fraction_m-col_2 Grid-Fraction_text-align_right\">4 s ago</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t");
       }).join('');
       return filesList ? filesList : '';
     }
@@ -537,14 +629,11 @@ var _FolderView = _interopRequireDefault(require("./mini-redux/FolderView"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('It works!');
   var store = new _Store.default(_Reducer.default);
-  var inputEl = document.querySelector('.SearchInput'); // const userEl = document.querySelector('.results');
-
-  var tableEl = document.querySelector('.Grid-Content');
-  new _InputView.default(inputEl, store); // new UserView(userEl, store);
-
-  new _FolderView.default(tableEl, store);
+  var inputElement = document.querySelector('.SearchInput');
+  var filesTableContainer = document.querySelector('.Grid-Content');
+  new _InputView.default(inputElement, store);
+  new _FolderView.default(filesTableContainer, store);
 });
 },{"./mini-redux/Store":"mini-redux/Store.js","./mini-redux/Reducer":"mini-redux/Reducer.js","./mini-redux/InputView":"mini-redux/InputView.js","./mini-redux/FolderView":"mini-redux/FolderView.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -574,7 +663,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46739" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42829" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

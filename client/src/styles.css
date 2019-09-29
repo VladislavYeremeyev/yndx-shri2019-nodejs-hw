@@ -143,6 +143,8 @@
 @import "./common.blocks/RepoItemsList/Item/_border-color/RepoItemsList-Item_border-color_purple.css";
 @import "./common.blocks/RepoItemsList/ItemName/RepoItemsList-ItemName.css";
 
+@import "./common.blocks/SearchInput/SearchInput.css";
+
 @import "./common.blocks/Footer/Footer.css";
 @import "./common.blocks/Footer/AddressBlock/Footer-AddressBlock.css";
 @import "./common.blocks/Footer/Element/_space-r/Footer-Element_space-r_xxl.css";
