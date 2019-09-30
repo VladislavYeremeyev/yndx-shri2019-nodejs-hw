@@ -21,7 +21,7 @@ class InputView extends View {
 		let store = this._store;
 		this._throttling = setTimeout(function() {
 			store.dispatch(findFilesByName(event.target.value));
-		}, 500);
+		}, 300);
 	}
 
 	render() {

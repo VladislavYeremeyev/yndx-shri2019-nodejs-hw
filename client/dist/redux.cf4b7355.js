@@ -323,112 +323,7 @@ var setFilesAction = function setFilesAction(files) {
 };
 
 exports.setFilesAction = setFilesAction;
-},{"./ActionTypes":"mini-redux/ActionTypes.js"}],"mini-redux/filesData.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = [{
-  name: 'api',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'kek',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'data',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'dev',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'zip',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'ast',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'zip2',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'api2',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'zen',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'arcadia',
-  type: 'folder',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'README.md',
-  type: 'script',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}, {
-  name: 'ya.make',
-  type: 'config',
-  commit: 'd53dsv',
-  commit_info: 'by Alexey Besedin, 4 s ago',
-  message: '[vcs] move http to arc',
-  committer: 'noxoomo',
-  updated: '4 s ago'
-}];
-exports.default = _default;
-},{}],"mini-redux/middleware.js":[function(require,module,exports) {
+},{"./ActionTypes":"mini-redux/ActionTypes.js"}],"mini-redux/middleware.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -438,35 +333,29 @@ exports.findFilesByName = void 0;
 
 var _Actions = require("./Actions");
 
-var _filesData = _interopRequireDefault(require("./filesData"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+// import data from './filesData';
 var findFilesByName = function findFilesByName(name) {
   return function (dispatch) {
-    // return fetch('http://localhost:3000/api/repos/task-1/tree/dev/')
-    // 	.then(response => response.json())
-    // 	.then(files => {
-    // 		const filteredFilesList = files.data.filter(file => {
-    // 			return file.toLowerCase().includes(name.toLowerCase());
-    // 		});
-    // 		dispatch(setFilesAction(filteredFilesList));
-    // 		dispatch(setNameAction(name));
-    // 	})
-    // 	.catch(err => console.log(err));
-    var filteredFilesList = _filesData.default.filter(function (file) {
-      return file.name.toLowerCase().includes(name.toLowerCase());
-    }).map(function (file) {
-      return file.name;
-    });
-
-    dispatch((0, _Actions.setFilesAction)(filteredFilesList));
-    dispatch((0, _Actions.setNameAction)(name));
+    return fetch('http://localhost:3000/api/repos/redux-thunk/tree/master/').then(function (response) {
+      return response.json();
+    }).then(function (files) {
+      var filteredFilesList = files.data.filter(function (file) {
+        return file.toLowerCase().includes(name.toLowerCase());
+      });
+      dispatch((0, _Actions.setFilesAction)(filteredFilesList));
+      dispatch((0, _Actions.setNameAction)(name));
+    }).catch(function (err) {
+      return console.log(err);
+    }); // const filteredFilesList = data.filter(file => {
+    // 	return file.name.toLowerCase().includes(name.toLowerCase());
+    // }).map(file => file.name);
+    // dispatch(setFilesAction(filteredFilesList));
+    // dispatch(setNameAction(name));
   };
 };
 
 exports.findFilesByName = findFilesByName;
-},{"./Actions":"mini-redux/Actions.js","./filesData":"mini-redux/filesData.js"}],"mini-redux/InputView.js":[function(require,module,exports) {
+},{"./Actions":"mini-redux/Actions.js"}],"mini-redux/InputView.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -535,7 +424,7 @@ function (_View) {
       var store = this._store;
       this._throttling = setTimeout(function () {
         store.dispatch((0, _middleware.findFilesByName)(event.target.value));
-      }, 500);
+      }, 300);
     }
   }, {
     key: "render",
@@ -663,7 +552,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42829" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39377" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
