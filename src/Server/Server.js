@@ -12,7 +12,9 @@ class Server {
 
 	run() {
 		const server = express();
+		const cors = require('cors');
 		const port = 3000;
+		server.use(cors());
 
 		server.use(bodyParser.json());
 
