@@ -142,12 +142,7 @@ class Server {
 							});
 						} else {
 							res.json({
-								data: [
-									...new Set(result
-										.trim()
-										.split('\n')
-										.map(elem => elem.indexOf('/') > -1 ? elem.split('/')[0] : elem))]
-									.sort((a) => a.indexOf('.'))
+								data: result.trim().split('\n').sort(a => a.indexOf('.'))
 							});
 						}
 					});
@@ -228,9 +223,7 @@ class Server {
 
 		server.get('/api/repos/:repositoryId/letters', async (req, res) => {
 			try {
-				const stream = this.repoHandler.getLettersData(
-					req.params.repositoryId
-				);
+				const stream = this.repoHandler.getLettersData(req.params.repositoryId);
 
 				stream.on('data', function(el) {
 					if (typeof stream.result[el] !== 'undefined') {

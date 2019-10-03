@@ -59,7 +59,7 @@ module.exports = class RepoHandler {
 	 * То, что в скобках - опционально, если отсутствует и branchName, и path - отдать актуальное содержимое в корне в главной ветке репозитория.
 	 */
 	getContent(repoID, commitHash, path) {
-		const options = ['ls-tree', '--name-only', '-r'];
+		const options = ['ls-tree', '--name-only'];
 
 		if (typeof commitHash !== 'undefined') {
 			options.push(commitHash);
@@ -69,6 +69,7 @@ module.exports = class RepoHandler {
 		if (typeof path !== 'undefined') {
 			options.push(path);
 		}
+		options.push('--');
 		return spawn('git', options, {
 			cwd: `${this.directoryPath}/${repoID}`
 		});
