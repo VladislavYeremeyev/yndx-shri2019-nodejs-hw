@@ -58,7 +58,7 @@ module.exports = class RepoHandler {
 	 * То, что в скобках - опционально, если отсутствует и branchName, и path - отдать актуальное содержимое в корне в главной ветке репозитория.
 	 */
 	getContent(repoID, commitHash, path) {
-		const options = ['ls-tree', '--name-only', '-r'];
+		const options = ['ls-tree', '--name-only'];
 
 		if (typeof commitHash !== 'undefined') {
 			options.push(commitHash);
@@ -68,6 +68,7 @@ module.exports = class RepoHandler {
 		if (typeof path !== 'undefined') {
 			options.push(path);
 		}
+		options.push('--');
 		return spawn('git', options, {
 			cwd: `${this.directoryPath}/${repoID}`
 		});
@@ -109,17 +110,17 @@ module.exports = class RepoHandler {
 	 * HTTP-запрос для подсчета символов в репозитории, возвращает объект, в котором ключ - это символ,
 	 * а значение - количество таких символов в репозитории. Во время запроса, сервер должен работать - то есть отвечать на другие запросы.
 	 */
-	getLettersData(repositoryId) {
-		const SymbolReadStream = require('../SymbolReadStream');
-		let resultObject = {};
+	// getLettersData(repositoryId) {
+	// 	const SymbolReadStream = require('../SymbolReadStream');
+	// 	let resultObject = {};
 
-		var r = new SymbolReadStream(
-			'src/test.txt',
-			{
-				encoding: 'utf8'
-			},
-			resultObject
-		);
-		return r;
-	}
+	// 	var r = new SymbolReadStream(
+	// 		'src/test.txt',
+	// 		{
+	// 			encoding: 'utf8'
+	// 		},
+	// 		resultObject
+	// 	);
+	// 	return r;
+	// }
 };
