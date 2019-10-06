@@ -172,7 +172,7 @@ class Server {
 
 					// For optimizing memory for large files
 					process.stdout.on('data', function(data) {
-						res.write(data);
+						res.write(data.toString());
 					});
 					process.on('close', function() {
 						// if (result.length === 0) {
