@@ -8,6 +8,8 @@ const urlExists = require('url-exists');
 class Server {
 	constructor(repoHandler) {
 		this.repoHandler = repoHandler;
+		this.serverInstance = null;
+		this.isTesting = false;
 	}
 
 	run() {
@@ -38,12 +40,16 @@ class Server {
 					req.params.commitHash
 				);
 				let result = '';
+				let withError = false;
 				const keys = ['hash', 'name', 'date-timestamp'];
 				process.stdout.on('data', function(data) {
 					result += data.toString();
 				});
+				process.on('error', function () {
+					withError = true;
+				});
 				process.on('close', function() {
-					if (result.length === 0) {
+					if (result.length === 0 || withError) {
 						res
 							.status(404)
 							.json({ message: 'branchName or commitHash does not exist' });
@@ -105,13 +111,24 @@ class Server {
 						req.params.commitHash
 					);
 					let result = '';
+					let withError = false;
 					process.stdout.on('data', function(data) {
 						result += data.toString();
 					});
+					process.on('error', function () {
+						withError = true;
+					});
 					process.on('close', function() {
-						res.json({
-							data: result
-						});
+						if (withError || result.length === 0) {
+							res
+								.status(404)
+								.json({ message: 'repoID, branchName or commitHash does not exist' });
+						}
+						else {
+							res.json({
+								data: result
+							});
+						}
 					});
 				} catch (err) {
 					console.log(err);
@@ -132,11 +149,15 @@ class Server {
 						req.params.path
 					);
 					let result = '';
+					let withError = false;
 					process.stdout.on('data', function(data) {
 						result += data.toString();
 					});
+					process.on('error', function () {
+						withError = true;
+					});
 					process.on('close', function() {
-						if (result.length === 0) {
+						if (withError || result.length === 0) {
 							res.status(404).json({
 								message: 'Branch or directory is empty or not exists'
 							});
@@ -165,6 +186,7 @@ class Server {
 						path.extname(req.params.pathToFile)
 					);
 					res.type(contentType);
+					let withError = false;
 					// let result = '';
 					// process.stdout.on('data', function(data) {
 					// 	result += data.toString();
@@ -172,7 +194,11 @@ class Server {
 
 					// For optimizing memory for large files
 					process.stdout.on('data', function(data) {
-						res.write(data);
+						// res.write(data);
+						res.write(data.toString());
+					});
+					process.on('error', function () {
+						withError = true;
 					});
 					process.on('close', function() {
 						// if (result.length === 0) {
@@ -180,8 +206,47 @@ class Server {
 						// 		message: 'File is empty or not exists'
 						// 	});
 						// }
-
+						if(withError) {
+							res.status(404);
+						}
 						res.end();
+					});
+					process.on('uncaughtException', ex => {
+						console.log(ex);
+						process.exit(1);
+					});
+				} catch (err) {
+					console.log(err);
+				}
+			}
+		);
+		
+		server.get(
+			'/api-test/repos/:repositoryId/blob/:commitHash/:pathToFile([^/]*)?',
+			(req, res) => {
+				try {
+					const process = this.repoHandler.getFileContent(
+						req.params.repositoryId,
+						req.params.commitHash,
+						req.params.pathToFile
+					);
+
+					let result = '';
+					let withError = false;
+					process.stdout.on('data', function(data) {
+						result += data.toString();
+					});
+					process.on('error', function () {
+						withError = true;
+					});
+					process.on('close', function() {
+						if (withError || result.length === 0) {
+							res.status(404).json({
+								message: 'File is empty or not exists'
+							});
+						} else {
+							res.json({data: result});
+						}
 					});
 					process.on('uncaughtException', ex => {
 						console.log(ex);
@@ -246,7 +311,7 @@ class Server {
 			res.status(404).send({ message: 'Not found' });
 		});
 
-		server.listen(port, () => console.log(`Server listening on port ${port}!`));
+		this.serverInstance = server.listen(port, () => this.isTesting ? '' : console.log(`Server listening on port ${port}!`));
 	}
 }
 

@@ -58,7 +58,8 @@ module.exports = class RepoHandler {
 	 * То, что в скобках - опционально, если отсутствует и branchName, и path - отдать актуальное содержимое в корне в главной ветке репозитория.
 	 */
 	getContent(repoID, commitHash, path) {
-		const options = ['ls-tree', '--name-only'];
+		// '--name-only'
+		const options = ['ls-tree'];
 
 		if (typeof commitHash !== 'undefined') {
 			options.push(commitHash);
