@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+    "strict": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+		"rootDir": ".",
+		"outDir": "dist"
+		// "typeRoots": [
+		// 	"./src/types"
+		// ]
+  }
+}

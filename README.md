@@ -112,3 +112,8 @@ npm run test
 - [uuid](https://github.com/kelektiv/node-uuid)
 - [AdmZip](https://github.com/cthackers/adm-zip)
 - [rimraf](https://github.com/isaacs/rimraf)
+
+## Миграция на TypeScript
+
+Перевёл JS файлы на TypeScript.
+Запуск почти аналогичен приведенному выше:
