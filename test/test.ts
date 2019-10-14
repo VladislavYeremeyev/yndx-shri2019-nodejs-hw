@@ -13,8 +13,8 @@ const testFolderPath = path.join(__dirname, 'testFolder');
 describe('Creating RepoHandler instance', function() {
 	before(function() {
 		console.log('Unzipping');
-		const zip = new AdmZip('test/testFolder.zip');
-		zip.extractAllTo('test/', true);
+		const zip = new AdmZip('dist/test/testFolder.zip');
+		zip.extractAllTo('dist/test/', true);
 	});
 
 	it('Success instance creating with correct path', function() {

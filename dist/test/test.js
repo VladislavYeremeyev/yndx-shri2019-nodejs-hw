@@ -15,8 +15,8 @@ const testFolderPath = path_1.default.join(__dirname, 'testFolder');
 describe('Creating RepoHandler instance', function () {
     before(function () {
         console.log('Unzipping');
-        const zip = new adm_zip_1.default('test/testFolder.zip');
-        zip.extractAllTo('test/', true);
+        const zip = new adm_zip_1.default('dist/test/testFolder.zip');
+        zip.extractAllTo('dist/test/', true);
     });
     it('Success instance creating with correct path', function () {
         const repoHandler = new RepoHandler_1.default(testFolderPath);
