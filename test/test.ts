@@ -1,19 +1,20 @@
-const RepoHandler = require('../src/RepoHandler/RepoHandler');
-const chai = require('chai');
-const path = require('path');
-const fs = require('fs');
-const uuidv4 = require('uuid/v4');
-const request = require('supertest');
-const AdmZip = require('adm-zip');
-const rimraf = require('rimraf');
+import RepoHandler from '../src/RepoHandler/RepoHandler';
+import chai from 'chai';
+import path from 'path';
+import fs from 'fs';
+import uuidv4 from 'uuid/v4';
+import request from 'supertest';
+import AdmZip from 'adm-zip';
+import rimraf from 'rimraf';
+import Server from "src/Server/Server";
 
 const testFolderPath = path.join(__dirname, 'testFolder');
 
 describe('Creating RepoHandler instance', function() {
 	before(function() {
 		console.log('Unzipping');
-		const zip = new AdmZip('test/testFolder.zip');
-		zip.extractAllTo('test/', true);
+		const zip = new AdmZip('dist/test/testFolder.zip');
+		zip.extractAllTo('dist/test/', true);
 	});
 
 	it('Success instance creating with correct path', function() {
@@ -23,7 +24,7 @@ describe('Creating RepoHandler instance', function() {
 
 	it('Error instance creating with path to not existing folder', function() {
 		// Generating random folder name
-		let randomID;
+		let randomID: string;
 		do {
 			randomID = uuidv4();
 		} while (fs.existsSync(path.join(__dirname, 'testFolder', randomID)));
@@ -41,18 +42,18 @@ describe('Creating RepoHandler instance', function() {
 });
 
 describe('API Methods', function() {
-	let server;
+	let server: Server;
 
 	before(function() {
 		const repoHandler = new RepoHandler(testFolderPath);
-		const Server = require('./../src/Server/Server');
+		const Server = require('../src/Server/Server');
 		server = new Server(repoHandler);
 		server.isTesting = true;
 		server.run();
 	});
 
 	after(function() {
-		server.serverInstance.close();
+		server.serverInstance!.close();
 		rimraf(testFolderPath, () => {
 			console.log('Mock folder deleted');
 		});
